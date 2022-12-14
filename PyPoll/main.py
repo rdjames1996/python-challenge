@@ -9,9 +9,9 @@ output = os.path.join("PyPoll/Analysis/PyPoll_Analysis.txt")
 #variables
 votes = []
 candidates = []
-Stockham = []
-DeGette = []
-Doane = []
+Charles_Stockham = []
+Diana_DeGette = []
+Raymon_Doane = []
 Stockham_votes = 0
 DeGette_votes = 0
 Doane_votes = 0
@@ -20,7 +20,6 @@ Doane_votes = 0
 with open(poll_path, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
-    print(f"Header: {csv_header}")
 
     #loop to store data in votes and candidates
     for row in csvreader:
@@ -33,16 +32,16 @@ with open(poll_path, newline="") as csvfile:
     #votes per candidate
     for candidate in candidates:
         if candidate == "Charles Casper Stockham":
-            Stockham.append(candidates)
-            Stockham_votes = len(Stockham)
+            Charles_Stockham.append(candidates)
+            Stockham_votes = len(Charles_Stockham)
 
         elif candidate == "Diana DeGette":
-            DeGette.append(candidates)
-            DeGette_votes = len(DeGette)
+            Diana_DeGette.append(candidates)
+            DeGette_votes = len(Diana_DeGette)
 
         else:
-            Doane.append(candidates)
-            Doane_votes = len(Doane)
+            Raymon_Doane.append(candidates)
+            Doane_votes = len(Raymon_Doane)
 
         #% of votes per candidate
         Stockham_percent = round(((Stockham_votes / total_votes) * 100), 3)
@@ -69,17 +68,7 @@ with open(poll_path, newline="") as csvfile:
     print(f"Winner: {winner}")
     print("\n-----------------------\n")
 
-    with open(output, "w") as text:
-        text.write("Election Results\n")
-        text.write("----------------------------\n")
-        text.write(f"Total Votes: {total_votes}\n")
-        text.write("----------------------------\n")
-        text.write(f"Charles Casper Stockham: {Stockham_percent} ({Stockham_votes})\n")
-        text.write(f"Diana DeGette: {DeGette_percent} ({DeGette_votes})\n")
-        text.write(f"Raymon Anthony Doane: {Doane_percent} ({Doane_votes})\n")
-        text.write("----------------------------\n")
-        text.write(f"Winner: {winner}\n")
-        text.write("----------------------------\n")
+  
 
 
     
