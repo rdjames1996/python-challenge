@@ -68,7 +68,19 @@ with open(poll_path, newline="") as csvfile:
     print(f"Winner: {winner}")
     print("\n-----------------------\n")
 
-  
+   
+    #export to .txt file
+    with open(output, "w") as text:
+        text.write("Election Results\n")
+        text.write("----------------------------\n")
+        text.write(f"Total Votes: {total_votes}\n")
+        text.write("----------------------------\n")
+        text.write(f"Charles Casper Stockham: {Stockham_percent} ({Stockham_votes})\n")
+        text.write(f"Diana DeGette: {DeGette_percent} ({DeGette_votes})\n")
+        text.write(f"Raymon Anthony Doane: {Doane_percent} ({Doane_votes})\n")
+        text.write("----------------------------\n")
+        text.write(f"Winner: {winner}\n")
+        text.write("----------------------------\n")
 
 
     
