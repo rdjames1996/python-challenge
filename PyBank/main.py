@@ -6,7 +6,7 @@ import csv
 budget_data = os.path.join("PyBank/Resources/budget_data.csv")
 output = os.path.join("PyBank/Analysis/Pybank_Analysis.txt")
 
-#Define variables
+#define variables
 months = []
 profit_loss_changes = []
 
@@ -20,6 +20,8 @@ profit_loss_change = 0
 with open(budget_data, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
+    
+    #loop to store data
     for row in csvreader:
 
         #count of months
@@ -46,7 +48,7 @@ with open(budget_data, newline="") as csvfile:
             # Add to profit_loss_changes[]
             profit_loss_changes.append(profit_loss_change)
 
-            # Prepare next loop by assigning current month to last month i
+            # Prepare next loop by assigning current month to last month
             previous_month_profit_loss = current_month_profit_loss
 
     #sum and average of Profit/Losses
@@ -72,8 +74,9 @@ print(f"Total Months: {count_months}")
 print(f"Total: ${net_profit_loss}")
 print(f"Average Change: ${average_profit_loss}")
 print(f"Greatest Increase in Profits: {best_month} (${highest_change})")
-print(f"Greatest Decrease in Losses: {worst_month} (${lowest_change})")    
-    
+print(f"Greatest Decrease in Losses: {worst_month} (${lowest_change})")   
+
+#export to .txt file    
 with open(output, "w") as text:
     text.write("Financial Analysis\n")
     text.write("----------------------------\n")
